@@ -6,12 +6,16 @@ import 'package:punch_in/pages/no_network/no_network_binding.dart';
 import 'package:punch_in/pages/no_network/no_network_view.dart';
 import 'package:punch_in/pages/punch_first/punch_first_binding.dart';
 import 'package:punch_in/pages/punch_first/punch_first_view.dart';
+import 'package:punch_in/pages/punch_moke/punch_moke_binding.dart';
+import 'package:punch_in/pages/punch_moke/punch_moke_view.dart';
 import 'package:punch_in/pages/punch_second/punch_second_binding.dart';
 import 'package:punch_in/pages/punch_second/punch_second_view.dart';
 import 'package:punch_in/pages/punch_tab/punch_tab_binding.dart';
 import 'package:punch_in/pages/punch_tab/punch_tab_view.dart';
 import 'package:punch_in/pages/punch_third/punch_third_binding.dart';
 import 'package:punch_in/pages/punch_third/punch_third_view.dart';
+
+import 'db_punch/db_init.dart';
 
 Color primaryColor = const Color(0xff0089ff);
 Color bgColor = Colors.white;
@@ -34,7 +38,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: Dings,
-      initialRoute: '/punchTab',
+      initialRoute: '/',
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: primaryColor,
@@ -86,9 +90,11 @@ class MyApp extends StatelessWidget {
   }
 }
 List<GetPage<dynamic>> Dings = [
+  GetPage(name: '/', page: () => const PunchMokeView(), binding: PunchMokeBinding()),
   GetPage(name: '/systemError', page: () => NoNetworkPage(), binding: NoNetworkBinding()),
   GetPage(name: '/punchFirst', page: () => const PunchFirstPage(), binding: PunchFirstBinding()),
   GetPage(name: '/punchSecond', page: () => PunchSecondPage(), binding: PunchSecondBinding()),
+  GetPage(name: '/punchInit', page: () => const DbInit()),
   GetPage(name: '/punchThird', page: () => PunchThirdPage(), binding: PunchThirdBinding()),
-  GetPage(name: '/punchTab', page: () => PunchTabPage(), binding: PunchTabBinding()),
+  GetPage(name: '/punchTab', page: () => const PunchTabPage(), binding: PunchTabBinding()),
 ];

@@ -9,6 +9,8 @@ import '../punch_second/punch_second_logic.dart';
 import 'punch_tab_logic.dart';
 
 class PunchTabPage extends GetView<PunchTabLogic> {
+  const PunchTabPage({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class PunchTabPage extends GetView<PunchTabLogic> {
         physics: const NeverScrollableScrollPhysics(),
         controller: controller.pageController,
         children: [
-          PunchFirstPage(),
+          const PunchFirstPage(),
           PunchSecondPage(),
           PunchThirdPage()
         ],
